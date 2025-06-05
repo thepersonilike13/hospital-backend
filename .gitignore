@@ -2,7 +2,5 @@ venv/
 .env
 __pycache__/
 *.pyc
-react-frontend/build/
 node_modules/
 .vscode/
-react-frontend/
