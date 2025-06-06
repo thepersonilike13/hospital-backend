@@ -7,7 +7,10 @@ import mysql.connector.pooling
 load_dotenv()
 
 app = Flask(__name__, static_folder="react-frontend/build", static_url_path="")
+
 CORS(app)
+
+
 db_config = {
     "host": os.getenv("DB_HOST"),
     "user": os.getenv("DB_USER"),
@@ -371,3 +374,7 @@ def serve_react(path):
 if __name__ == '__main__':
     print("Flask server is running on http://localhost:5001 ...")
     app.run(debug=True, port=5001)
+    
+def handler(environ, start_response):
+    return app(environ, start_response)
+
