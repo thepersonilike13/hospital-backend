@@ -56,8 +56,10 @@ def get_hospital():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     finally:
-        cursor.close()
-        db.close()
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
 @app.route('/departments', methods=['GET'])
 def get_departments():
@@ -69,8 +71,10 @@ def get_departments():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     finally:
-        cursor.close()
-        db.close()
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
 @app.route('/add_department', methods=['POST'])
 def add_department():
@@ -92,8 +96,10 @@ def add_department():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     finally:
-        cursor.close()
-        db.close()
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
 @app.route('/update_department/<int:dept_id>', methods=['PUT'])
 def update_department(dept_id):
@@ -112,8 +118,10 @@ def update_department(dept_id):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     finally:
-        cursor.close()
-        db.close()
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
 @app.route('/delete_department/<int:dept_id>', methods=['DELETE'])
 def delete_department(dept_id):
@@ -126,8 +134,10 @@ def delete_department(dept_id):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     finally:
-        cursor.close()
-        db.close()
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
 @app.route('/department/<int:dept_id>', methods=['GET'])
 def get_department_details(dept_id):
@@ -147,8 +157,10 @@ def get_department_details(dept_id):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     finally:
-        cursor.close()
-        db.close()
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
 @app.route('/add_doctor', methods=['POST'])
 def add_doctor():
@@ -171,8 +183,10 @@ def add_doctor():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     finally:
-        cursor.close()
-        db.close()
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
 @app.route('/update_doctor', methods=['PUT'])
 def update_doctor():
@@ -196,8 +210,10 @@ def update_doctor():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     finally:
-        cursor.close()
-        db.close()
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
 @app.route('/delete_doctor/<int:dept_id>/<string:name>', methods=['DELETE'])
 def delete_doctor(dept_id, name):
@@ -210,8 +226,10 @@ def delete_doctor(dept_id, name):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     finally:
-        cursor.close()
-        db.close()
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
 @app.route('/add_nurse', methods=['POST'])
 def add_nurse():
@@ -233,8 +251,10 @@ def add_nurse():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     finally:
-        cursor.close()
-        db.close()
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
 @app.route('/update_nurse', methods=['PUT'])
 def update_nurse():
@@ -257,8 +277,10 @@ def update_nurse():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     finally:
-        cursor.close()
-        db.close()
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
 @app.route('/delete_nurse/<int:dept_id>/<string:name>', methods=['DELETE'])
 def delete_nurse(dept_id, name):
@@ -271,8 +293,10 @@ def delete_nurse(dept_id, name):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     finally:
-        cursor.close()
-        db.close()
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
 @app.route('/search', methods=['GET'])
 def search():
@@ -329,8 +353,10 @@ def search():
         print("Search error:", e)
         return jsonify({"error": str(e)}), 500
     finally:
-        cursor.close()
-        db.close()
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
 # ----------- ✅ Serve React Frontend -----------
 @app.route("/", defaults={"path": ""})
